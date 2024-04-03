@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	Email confirm page
+{% endblock %}
+
+{% block content %}
+	<h1>Insert number from email</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="number" max="999" min="100" name="num1">-<input type="number" max="999" min="100" name="num2">
+        <input type="submit" value="Send" class="btn btn-success mt-3">
+    </form>
+{% endblock %}

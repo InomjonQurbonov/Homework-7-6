@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	HomePage
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'style/card.css' %}">
+    <div class="row">
+    {% for new in news %}
+        <div class="col sm-4">
+            <div class="card">
+                <p class="heading">{{ new.news_title }}</p>
+                <p class="para">{{ new.news_category }}
+                </p><div class="overlay"></div>
+                <button class="card-btn"><a href="{% url 'about_news' new.pk %}">More</a></button>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

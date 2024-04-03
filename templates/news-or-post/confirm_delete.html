@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+	Confirm Delete News
+{% endblock %}
+{% block content %}
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Confirm Delete News</h1>
+        <p>Are you sure you want to delete the news titled "{{ object.news_title }}"? This action cannot be undone.</p>
+        <form action="{% url 'delete_news' object.pk %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a href="{% url 'news_list' %}" class="btn btn-info">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

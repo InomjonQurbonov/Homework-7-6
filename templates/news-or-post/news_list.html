@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	NewsList
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+      <h1>Here all News and posts</h1>
+      <p>Hello {{ user.username }}. For more information push to 'More' button!</p>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>News Title</th>
+        <th>News Category</th>
+        <th>About News</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for new in news %}
+        <tr>
+            <td>{{ new.news_title }}</td>
+            <td>{{ new.news_category }}</td>
+            <td><a href="{% url 'about_news' new.pk %}">More About This new</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

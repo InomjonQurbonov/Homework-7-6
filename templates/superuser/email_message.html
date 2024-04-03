@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	SuperUser-{{ user.username }}
+{% endblock %}
+
+{% block content %}
+    <br>
+    <div class="container-fluid bg-secondary">
+        <form action="" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Send Message For All Users</legend>
+                <p>
+                    <label for="subject">Subject:</label>
+                    <input type="text" name="subject" class="form-control" id="subject">
+                </p>
+                <p>
+                    <label for="message">Message text:</label>
+                    <textarea name="message" id="message" rows="5" class="form-control"></textarea>
+                </p>
+                <input type="submit" value="Send Message" class="form-control btn btn-success">
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}

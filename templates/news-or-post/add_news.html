@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+	Add News
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+      <h1>Page for insert News or posts</h1>
+      <p>Hello dear {{ user.username }}. Here you can insert New or Post! Good Luck</p>
+    </div>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form|crispy }}
+        <input type="submit" value="Insert News" class="btn btn-success">
+    </form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	{{ news.news_title }}
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>{{ news.news_title }}</h1> <h4>{{ news.news_category }}</h4><span class="badge bg-info">{{ news.news_views_count }}</span>
+        <h3>Author:{{ news.news_author }}</h3>
+        {% if news.news_author == user %}
+            <button type="button" class="btn btn-warning"><a href="{% url 'update_news' news.pk %}" class="text-white">Edit News</a></button>
+            <button type="button" class="btn btn-danger"><a href="{% url 'delete_news' news.pk %}" class="text-white">Delete News</a></button>
+        {% endif %}
+    <div class="container">{{ news.news_content|safe }}</div>
+    <div class="container">{{ news.news_description|safe }}</div>
+    </div>
+{% endblock %}
